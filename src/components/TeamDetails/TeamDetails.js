@@ -15,6 +15,7 @@ const TeamDetails = () => {
   const { teamId } = useParams();
   const [selectedTeam, setSelectedTeam] = useState({});
   const {
+    strTeamBanner,
     strFacebook,
     strYoutube,
     strTwitter,
@@ -23,7 +24,7 @@ const TeamDetails = () => {
     strTeam,
     strDescriptionEN,
     strStadiumDescription,
-    strTeamLogo,
+    strTeamBadge,
     intFormedYear,
   } = selectedTeam;
   useEffect(() => {
@@ -31,12 +32,19 @@ const TeamDetails = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => setSelectedTeam(data.teams[0]));
-  }, []);
+  }, [teamId]);
+  console.log(strTeamBanner);
   return (
     <div className="top">
-      <div className="background-img">
+      <div
+        style={{
+          backgroundImage: `url(${strTeamBanner})`,
+          height: "300px",
+        }}
+        className="background-img"
+      >
         <div className="img">
-          <img className="img-fluid" src={strTeamLogo} alt="" srcset="" />
+          <img className="img-fluid" src={strTeamBadge} alt="" srcset="" />
         </div>
       </div>
       <div className=" team-header pt-3">

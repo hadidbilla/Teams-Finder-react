@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import "./Team.css";
 
 const Teams = (props) => {
@@ -25,7 +27,10 @@ const Teams = (props) => {
           <h5 className="card-title">{strTeam}</h5>
           <p className="card-text">Sports type: Football</p>
           <Link to={`/team/${idTeam}`}>
-            <button className="glow-on-hover">Explore</button>
+            <button className="glow-on-hover">
+              Explore
+              <FontAwesomeIcon className="ml-3" icon={faArrowRight} />
+            </button>
           </Link>
         </div>
       </div>
